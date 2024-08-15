@@ -8,13 +8,13 @@ def canUnlockAll(boxes):
     box is unlocked.
     '''
     n = len(boxes)
-    unlocked = set([0])  # Set of unlocked boxes, start with the first box
-    stack = list(boxes[0])  # Keys from the first box
+    unlocked = set([0])
+    stack = list(boxes[0])
 
     while stack:
         key = stack.pop()
-        if 0 <= key < n and key not in unlocked:  # Valid and not yet unlocked
-            unlocked.add(key)  # Mark the box as unlocked
-            stack.extend(boxes[key])  # Add all keys from the newly unlocked box to stack
+        if 0 <= key < n and key not in unlocked:
+            unlocked.add(key)
+            stack.extend(boxes[key])
 
-    return len(unlocked) == n  # True if all boxes are unlocked
+    return len(unlocked) == n
